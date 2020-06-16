@@ -1,0 +1,21 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+#gameboard {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: red;
+    width: 600px;
+    height: 600px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 135px;
+}
+.spots {
+    display: block;
+    outline: 1px solid;
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    text-align: center;
+}
