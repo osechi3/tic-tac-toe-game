@@ -49,7 +49,6 @@ const Gameboard = (() => {
                     }
                     collectMark();
                 })
-                    
         })
     }
 
@@ -118,9 +117,12 @@ const Gameboard = (() => {
             })
             const gbContainer = document.querySelector('#gameboard');
             const cover = document.querySelector('#cover');
+            const winScreen = document.querySelector('#win-screen');
             gbContainer.removeChild(cover);
             player1.isWon = false;
             player2.isWon = false;
+            winScreen.style.transform = 'translateY(-145%)';
+            winScreen.style.transitionTimingFunction = 'cubic-bezier(.74,-0.5,.58,1)';
         })
     }
 
