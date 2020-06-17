@@ -98,6 +98,11 @@ const Gameboard = (() => {
             player2.isWon = true;
             console.log('Lost');
             showWinScreen(player2);
+        } else if (string1.length > 4 || string2.length > 4) {
+            player1.isWon = true;
+            player2.isWon = true;
+            console.log('Tie');
+            showWinScreen();
         }
     }
 
@@ -136,8 +141,13 @@ const Gameboard = (() => {
     const showPlayAgain = (playerWon) => {
         const winScreen = document.querySelector('#win-screen');
         const gameOverMessage = document.querySelector('#game-over-message');
-        playerWon == player1 ? gameOverMessage.textContent = 'Player 1 Won!' : 
-                gameOverMessage.textContent = 'Player 2 Won!'
+        if (playerWon == player1) {
+            gameOverMessage.textContent = 'Player 1 Won!';
+        } else if (playerWon == player2) {
+            gameOverMessage.textContent = 'Player 2 Won!';
+        } else {
+            gameOverMessage.textContent = 'It\'s a tie';
+        }
         winScreen.style.cssText = 'transform: translateY(145%);';
     }
 
