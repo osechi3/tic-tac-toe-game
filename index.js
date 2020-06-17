@@ -4,6 +4,7 @@ const Gameboard = (() => {
 
     const createGameboard = () => {
         const gbContainer = document.querySelector('#gameboard');
+
         gameboard.map((element) => {
             const div = document.createElement('div');
             div.setAttribute('data-pos', `${gameboard.indexOf(element)}`);
@@ -12,6 +13,18 @@ const Gameboard = (() => {
             gbContainer.appendChild(div);
         });
     };
+
+    const startGame = () => {
+        const titleContainer = document.querySelector('#title-container');
+        const gameboard = document.querySelector('#gameboard');
+        const playButton = document.querySelector('#play-button');
+        gameboard.appendChild(titleContainer);
+
+        playButton.addEventListener('click', () => {
+            titleContainer.style.cssText = 'transform: translateY(-200%);'
+            Gameboard.makeTurn(player1)
+        });
+    }
 
     const makeTurn = (player) => {
         const spots = document.querySelectorAll('.spots');
@@ -90,12 +103,47 @@ const Gameboard = (() => {
     }
 
     const showWinScreen = (player) => {
-        
+        const playAgainButton = document.querySelector('#play-again-button');
+        const spots = document.querySelectorAll('.spots');
+
+
+        showCover(); // preventing showWinScreen function from from running more than once
+        showPlayAgain(player);
+        playAgainButton.addEventListener('click', () => {
+            for (i = 0; i < 9; i++) {
+                gameboard[i] = `${i}`;
+            }
+            spots.forEach((cell) => {
+                cell.textContent = cell.dataset.pos;
+            })
+            const gbContainer = document.querySelector('#gameboard');
+            const cover = document.querySelector('#cover');
+            gbContainer.removeChild(cover);
+            player1.isWon = false;
+            player2.isWon = false;
+        })
+    }
+
+    const showCover = () => {
+        const gbContainer = document.querySelector('#gameboard');
+        const cover = document.createElement('div')
+        cover.setAttribute('id', 'cover');
+        gbContainer.appendChild(cover);
+    }
+
+    const showPlayAgain = (playerWon) => {
+        const winScreen = document.querySelector('#win-screen');
+        const gameOverMessage = document.querySelector('#game-over-message');
+        playerWon == player1 ? gameOverMessage.textContent = 'Player 1 Won!' : 
+                gameOverMessage.textContent = 'Player 2 Won!'
+        winScreen.style.cssText = 'transform: translateY(145%);';
     }
 
     return {
         createGameboard,
         makeTurn,
+        startGame,
+        gameboard, // remove from here
     };
 })();
 
@@ -111,5 +159,5 @@ const player2 = Player('Dave', 'O', false);
 const Game = (() => {
 
     Gameboard.createGameboard();
-    Gameboard.makeTurn(player1);
+    Gameboard.startGame();
 })();

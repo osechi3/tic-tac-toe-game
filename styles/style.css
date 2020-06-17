@@ -1,6 +1,38 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: #D8E2DC;
+}
+#title-container {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    background-color: #FFCAD4;
+    transition: 1.5s;
+    transition-timing-function: cubic-bezier(.74,-0.25,.58,1);
+}
+#cover {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-color: #FFCAD4;
+    opacity: 0.5;
+    border: 1px solid;
+}
+#win-screen {
+    position: relative;
+    bottom: 150px;
+    width: 700px;
+    height: 100px;
+    background-color: #FFCAD4;
+    border: 1px solid;
+    margin: 0 auto;
+    text-align: center;
+    transition-duration: .7s;
+    transition-timing-function: ease-in-out;
 }
 #gameboard {
     display: flex;
@@ -10,6 +42,7 @@ body {
     height: 600px;
     font-family: 'Indie Flower', cursive;
     font-size: 135px;
+    margin: 110px auto;
 }
 .spots {
     display: block;
@@ -18,4 +51,7 @@ body {
     height: 200px;
     background-color: green;
     text-align: center;
+}
+#play-again-button {
+    height: 20px;
 }
