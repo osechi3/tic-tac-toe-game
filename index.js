@@ -8,7 +8,7 @@ const Gameboard = (() => {
         gameboard.map((element) => {
             const div = document.createElement('div');
             div.setAttribute('data-pos', `${gameboard.indexOf(element)}`);
-            div.textContent = element;
+            div.textContent = '';
             div.classList.add('spots');
             gbContainer.appendChild(div);
         });
@@ -56,7 +56,7 @@ const Gameboard = (() => {
                         if (player == player1 && spot.textContent !== 'X' && 
                                 spot.textContent !== 'O') { // disabling rewriting X and O marks
                             console.log(gameboard);
-                            gameboard[gameboard.indexOf(spot.textContent)] = player.mark;
+                            gameboard[gameboard.indexOf(spot.dataset.pos)] = player.mark;
                             spot.textContent = player.mark;
                             console.log(gameboard);
                             player = player2;
@@ -64,7 +64,7 @@ const Gameboard = (() => {
                         } else if (player == player2 && spot.textContent !== 'X' && 
                                 spot.textContent !== 'O') { // disabling rewriting X and O marks
                             console.log(gameboard);
-                            gameboard[gameboard.indexOf(spot.textContent)] = player.mark;
+                            gameboard[gameboard.indexOf(spot.dataset.pos)] = player.mark;
                             spot.textContent = player.mark;
                             console.log(gameboard);
                             player = player1;
@@ -143,7 +143,7 @@ const Gameboard = (() => {
         }
         const spots = document.querySelectorAll('.spots');
         spots.forEach((cell) => {
-            cell.textContent = cell.dataset.pos;
+            cell.textContent = '';
         })
         const gbContainer = document.querySelector('#gameboard');
         const cover = document.querySelector('#cover');
