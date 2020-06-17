@@ -42,7 +42,7 @@ body {
     height: 600px;
     font-family: 'Indie Flower', cursive;
     font-size: 135px;
-    margin: 110px auto;
+    margin: 110px auto 0 auto;
 }
 .spots {
     display: block;
@@ -54,4 +54,11 @@ body {
 }
 #play-again-button {
     height: 20px;
+}
+#whose-turn-box {
+    outline: 1px solid;
+    width: 400px;
+    margin: 25px auto;
+    text-align: center;
+    font-size: 25px;
 }

@@ -22,8 +22,22 @@ const Gameboard = (() => {
 
         playButton.addEventListener('click', () => {
             titleContainer.style.cssText = 'transform: translateY(-200%);'
-            Gameboard.makeTurn(player1)
+            createTurnBox();
+            showWhoseTurn(player1);
+            Gameboard.makeTurn(player1);
         });
+    }
+
+    const createTurnBox = () => {
+        const main = document.querySelector('main');
+        const div = document.createElement('div');
+        div.setAttribute('id', 'whose-turn-box');
+        main.appendChild(div);
+    }
+
+    const showWhoseTurn = (player) => {
+        const whoseTurnBox = document.querySelector('#whose-turn-box');
+        whoseTurnBox.textContent = `It's ${player.name}'s turn`
     }
 
     const makeTurn = (player) => {
@@ -38,6 +52,7 @@ const Gameboard = (() => {
                             spot.textContent = player.mark;
                             console.log(gameboard);
                             player = player2;
+                            showWhoseTurn(player2);
                         } else if (player == player2 && spot.textContent !== 'X' && 
                                 spot.textContent !== 'O') {
                             console.log(gameboard);
@@ -45,6 +60,7 @@ const Gameboard = (() => {
                             spot.textContent = player.mark;
                             console.log(gameboard);
                             player = player1;
+                            showWhoseTurn(player1);
                         }
                     }
                     collectMark();
