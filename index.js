@@ -22,10 +22,18 @@ const Gameboard = (() => {
 
         playButton.addEventListener('click', () => {
             titleContainer.style.cssText = 'transform: translateY(-200%);'
+            getUsersNames();
             createTurnBox();
             showWhoseTurn(player1);
             Gameboard.makeTurn(player1);
         });
+    }
+
+    const getUsersNames = () => {
+        const player1InputName = document.querySelector('#name1').value
+        const player2InputName = document.querySelector('#name2').value
+        if (player1InputName !== '') player1.name = player1InputName;
+        if (player2InputName !== '') player2.name = player2InputName;
     }
 
     const createTurnBox = () => {
@@ -181,8 +189,8 @@ const Player = (name, mark, isWon) => {
     return {name, mark, isWon}
 }
 
-const player1 = Player('Jeff', 'X', false);
-const player2 = Player('Dave', 'O', false);
+const player1 = Player('Player1', 'X', false);
+const player2 = Player('Player2', 'O', false);
 
 const Game = (() => {
 
