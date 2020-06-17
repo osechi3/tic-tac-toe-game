@@ -8,7 +8,6 @@ const Gameboard = (() => {
         gameboard.map((element) => {
             const div = document.createElement('div');
             div.setAttribute('data-pos', `${gameboard.indexOf(element)}`);
-            div.textContent = '';
             div.classList.add('spots');
             gbContainer.appendChild(div);
         });
