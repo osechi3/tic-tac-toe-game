@@ -54,7 +54,7 @@ const Gameboard = (() => {
                 spot.addEventListener('click', () => {
                     if (player1.isWon == false && player2.isWon == false) { // disabling clicks after winning
                         if (player == player1 && spot.textContent !== 'X' && 
-                                spot.textContent !== 'O') {
+                                spot.textContent !== 'O') { // disabling rewriting X and O marks
                             console.log(gameboard);
                             gameboard[gameboard.indexOf(spot.textContent)] = player.mark;
                             spot.textContent = player.mark;
@@ -62,7 +62,7 @@ const Gameboard = (() => {
                             player = player2;
                             showWhoseTurn(player2);
                         } else if (player == player2 && spot.textContent !== 'X' && 
-                                spot.textContent !== 'O') {
+                                spot.textContent !== 'O') { // disabling rewriting X and O marks
                             console.log(gameboard);
                             gameboard[gameboard.indexOf(spot.textContent)] = player.mark;
                             spot.textContent = player.mark;
@@ -132,27 +132,27 @@ const Gameboard = (() => {
 
     const showWinScreen = (player) => {
         const playAgainButton = document.querySelector('#play-again-button');
-        const spots = document.querySelectorAll('.spots');
-
-
         showCover(); // preventing showWinScreen function from from running more than once
         showPlayAgain(player);
-        playAgainButton.addEventListener('click', () => {
-            for (i = 0; i < 9; i++) {
-                gameboard[i] = `${i}`;
-            }
-            spots.forEach((cell) => {
-                cell.textContent = cell.dataset.pos;
-            })
-            const gbContainer = document.querySelector('#gameboard');
-            const cover = document.querySelector('#cover');
-            const winScreen = document.querySelector('#win-screen');
-            gbContainer.removeChild(cover);
-            player1.isWon = false;
-            player2.isWon = false;
-            winScreen.style.transform = 'translateY(-145%)';
-            winScreen.style.transitionTimingFunction = 'cubic-bezier(.74,-0.5,.58,1)';
+        playAgainButton.addEventListener('click', resetGame);
+    }
+
+    const resetGame = () => {
+        for (i = 0; i < 9; i++) {
+            gameboard[i] = `${i}`;
+        }
+        const spots = document.querySelectorAll('.spots');
+        spots.forEach((cell) => {
+            cell.textContent = cell.dataset.pos;
         })
+        const gbContainer = document.querySelector('#gameboard');
+        const cover = document.querySelector('#cover');
+        const winScreen = document.querySelector('#win-screen');
+        gbContainer.removeChild(cover);
+        player1.isWon = false;
+        player2.isWon = false;
+        winScreen.style.transform = 'translateY(-145%)';
+        winScreen.style.transitionTimingFunction = 'cubic-bezier(.74,-0.5,.58,1)';
     }
 
     const showCover = () => {
