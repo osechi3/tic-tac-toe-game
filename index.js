@@ -54,18 +54,14 @@ const Gameboard = (() => {
                     if (player1.isWon == false && player2.isWon == false) { // disabling clicks after winning
                         if (player == player1 && spot.textContent !== 'X' && 
                                 spot.textContent !== 'O') { // disabling rewriting X and O marks
-                            console.log(gameboard);
                             gameboard[gameboard.indexOf(spot.dataset.pos)] = player.mark;
                             spot.textContent = player.mark;
-                            console.log(gameboard);
                             player = player2;
                             showWhoseTurn(player2);
                         } else if (player == player2 && spot.textContent !== 'X' && 
                                 spot.textContent !== 'O') { // disabling rewriting X and O marks
-                            console.log(gameboard);
                             gameboard[gameboard.indexOf(spot.dataset.pos)] = player.mark;
                             spot.textContent = player.mark;
-                            console.log(gameboard);
                             player = player1;
                             showWhoseTurn(player1);
                         }
@@ -86,8 +82,6 @@ const Gameboard = (() => {
                 streak2 += spot.dataset.pos;
             }
         })
-        console.log(streak1);
-        console.log(streak2);
         if (streak1.length >= 3 || streak2.length >= 3) {
             checkWinner(streak1, streak2)
         }
@@ -106,7 +100,6 @@ const Gameboard = (() => {
             string1.includes('2') && string1.includes('5') && string1.includes('8')
             ) {
             player1.isWon = true;
-            console.log('Won');
             showWinScreen(player1);
         } else if (
             string2.includes('0') && string2.includes('1') && string2.includes('2') ||
@@ -119,12 +112,10 @@ const Gameboard = (() => {
             string2.includes('2') && string2.includes('5') && string2.includes('8')
         ) {
             player2.isWon = true;
-            console.log('Lost');
             showWinScreen(player2);
         } else if (string1.length > 4 || string2.length > 4) {
             player1.isWon = true;
             player2.isWon = true;
-            console.log('Tie');
             showWinScreen();
         }
     }
