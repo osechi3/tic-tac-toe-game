@@ -4,7 +4,6 @@ const Gameboard = (() => {
 
     const createGameboard = () => {
         const gbContainer = document.querySelector('#gameboard');
-
         gameboard.map((element) => {
             const div = document.createElement('div');
             div.setAttribute('data-pos', `${gameboard.indexOf(element)}`);
@@ -15,9 +14,9 @@ const Gameboard = (() => {
 
     const startGame = () => {
         const titleContainer = document.querySelector('#title-container');
-        const gameboard = document.querySelector('#gameboard');
+        const gbContainer = document.querySelector('#gameboard');
         const playButton = document.querySelector('#play-button');
-        gameboard.appendChild(titleContainer);
+        gbContainer.appendChild(titleContainer);
 
         playButton.addEventListener('click', () => {
             titleContainer.style.cssText = 'transform: translateY(-200%);'
