@@ -23,7 +23,7 @@ const Gameboard = (() => {
             getUsersNames();
             createTurnBox();
             showWhoseTurn(player1);
-            Gameboard.makeTurn(player1);
+            makeTurn(player1);
         });
     }
 
@@ -176,9 +176,7 @@ const Gameboard = (() => {
 
     return {
         createGameboard,
-        makeTurn,
         startGame,
-        gameboard, // remove from here
     };
 })();
 
