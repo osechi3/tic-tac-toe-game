@@ -1,35 +1,55 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #D8E2DC;
+    background-color: #E9C46A;
+    color: #1E1E24;
 }
 #title-container {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 510px;
+    height: 510px;
     margin: 0 auto;
     text-align: center;
-    font-size: 15px;
-    background-color: #FFCAD4;
+    font-size: 30px;
+    background-color: #F4A261;
     transition: 1.5s;
-    transition-timing-function: cubic-bezier(.74,-0.25,.58,1);
+    transition-timing-function: cubic-bezier(.74,-0.15,.58,1);
+}
+#title-container h1 {
+    margin: 55px 0 35px 0;
+}
+form {
+    font-size: 30px;
+    font-family: initial;
+    display: flex;
+    justify-content: space-around;
+}
+form input {
+    margin: 5px 0 0 0;
+    font-size: 15px;
+    text-align: center;
+    height: 40px;
+}
+#play-button {
+    margin: 25px 0 0 0;
+    font-size: 30px;
+    width: 180px;
 }
 #cover {
     position: absolute;
-    width: 600px;
-    height: 600px;
-    background-color: #FFCAD4;
+    width: 510px;
+    height: 510px;
+    background-color: #E9C46A;
     opacity: 0.5;
-    border: 1px solid;
 }
 #win-screen {
     position: relative;
     bottom: 150px;
     width: 700px;
-    height: 100px;
-    background-color: #FFCAD4;
-    border: 1px solid;
+    height: 90px;
+    background-color: #F4A261;
     margin: 0 auto;
+    border: 1px solid #F4A261;
     text-align: center;
     transition-duration: .7s;
     transition-timing-function: ease-in-out;
@@ -38,27 +58,39 @@ body {
     display: flex;
     flex-wrap: wrap;
     background-color: red;
-    width: 600px;
-    height: 600px;
+    width: 510px;
+    height: 510px;
     font-family: 'Indie Flower', cursive;
-    font-size: 135px;
-    margin: 110px auto 0 auto;
+    font-size: 120px;
+    margin: 10px auto 0 auto;
 }
 .spots {
     display: block;
-    outline: 1px solid;
-    width: 200px;
-    height: 200px;
-    background-color: green;
+    outline: 7px solid #E9C46A;
+    width: 170px;
+    height: 170px;
+    background-color: #F4A261;
     text-align: center;
 }
+#game-over-message {
+    margin: 10px 0 5px 0;
+}
+button {
+    font-size: 20px;
+    color: #1E1E24;
+    background-color: #E76F51;
+    border: none;
+}
+button:hover {
+    scale: 1.1;
+    background-color: #EB886F;
+}
 #play-again-button {
-    height: 20px;
+    height: 30px;
 }
 #whose-turn-box {
-    outline: 1px solid;
     width: 400px;
-    margin: 25px auto;
+    margin: 25px auto 0 auto;
     text-align: center;
     font-size: 25px;
 }

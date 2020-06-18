@@ -37,8 +37,9 @@ const Gameboard = (() => {
     const createTurnBox = () => {
         const main = document.querySelector('main');
         const div = document.createElement('div');
+        const gbContainer = document.querySelector('#gameboard');
         div.setAttribute('id', 'whose-turn-box');
-        main.appendChild(div);
+        main.insertBefore(div, gbContainer);
     }
 
     const showWhoseTurn = (player) => {
@@ -164,13 +165,13 @@ const Gameboard = (() => {
         const winScreen = document.querySelector('#win-screen');
         const gameOverMessage = document.querySelector('#game-over-message');
         if (playerWon == player1) {
-            gameOverMessage.textContent = 'Player 1 Won!';
+            gameOverMessage.textContent = `Congratulations! ${player1.name} Won!`;
         } else if (playerWon == player2) {
-            gameOverMessage.textContent = 'Player 2 Won!';
+            gameOverMessage.textContent = `Congratulations! ${player2.name} Won!`;
         } else {
             gameOverMessage.textContent = 'It\'s a tie';
         }
-        winScreen.style.cssText = 'transform: translateY(145%);';
+        winScreen.style.cssText = 'transform: translateY(155%);';
     }
 
     return {
